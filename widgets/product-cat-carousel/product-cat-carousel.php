@@ -6,6 +6,16 @@ Author: toSKYsoft
 Author URI: https://www.toskysoft.com
 */
 
+/**
+ * Add the carousel image sizes
+ */
+function tss_sow_carousel_register_image_sizes()
+{
+	$gallery_thumbnail = wc_get_image_size('gallery_thumbnail');
+	add_image_size('tss_shop_thumbnail_small', 50, 50, $gallery_thumbnail['crop']);
+}
+add_action('init', 'tss_sow_carousel_register_image_sizes');
+
 function tss_sow_product_cat_carousel_get_next_posts_page() 
 {
 	if ( empty( $_REQUEST['_widgets_nonce'] ) || !wp_verify_nonce( $_REQUEST['_widgets_nonce'], 'widgets_action' ) ) return;
