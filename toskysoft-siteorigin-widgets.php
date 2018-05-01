@@ -8,7 +8,7 @@
  * Author URI: https://www.toskysoft.com/
  * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
- * Version: 1.0.0
+ * Version: 1.0.3
  * Text Domain: tss-so-widgets
  * Domain Path: languages
  */

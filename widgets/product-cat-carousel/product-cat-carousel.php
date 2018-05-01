@@ -156,12 +156,13 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 
 			'image_width' => array(
 				'type' => 'number',
-				'label' => __('Image Width (px)', 'so-widgets-bundle'),
+				'label' => __('Image Width (px)', 'tss-so-widgets'),
 			),
 
 			'image_align' => array(
 				'type' => 'select',
 				'std' => 'center',
+				'default' => 'center',
 				'label' => __('Image Align', 'tss-so-widgets'),
 				'options' => array(
 					'left' => __('Left', 'tss-so-widgets'),
