@@ -154,9 +154,9 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 				'label' => __('Hide empty categories', 'tss-so-widgets'),
 			),
 
-			'image_width' => array(
+			'box_width' => array(
 				'type' => 'number',
-				'label' => __('Image Width (px)', 'tss-so-widgets'),
+				'label' => __('Box Width (px)', 'tss-so-widgets'),
 			),
 
 			'image_align' => array(
@@ -181,7 +181,7 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 		$thumb_hover_width = '';
 		$thumb_hover_height = '';
 		$thumb_image_align = $instance['image_align'];
-		$thumb_image_width = $instance['image_width'];
+		$thumb_box_width = $instance['box_width'];
 
 		if ( ! ( empty( $size['width'] ) || empty( $size['height'] ) ) ) {
 			$thumb_width = $size['width'] - $size['width'] * 0.1;
@@ -190,9 +190,9 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 			$thumb_hover_height = $size['height'];
 		}
 
-		if( empty( $thumb_image_width ) )
+		if( empty( $thumb_box_width ) )
 		{
-			$thumb_image_width = $thumb_width;
+			$thumb_box_width = $thumb_width;
 		}
 		
 		return array(
@@ -200,7 +200,7 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 			'thumbnail_height'=> $thumb_height . 'px',
 			'thumbnail_hover_width' => $thumb_hover_width . 'px',
 			'thumbnail_hover_height'=> $thumb_hover_height . 'px',
-			'thumbnail_image_width' => $thumb_image_width .'px',
+			'thumbnail_box_width' => $thumb_box_width .'px',
 			'thumbnail_image_align' => $thumb_image_align,
 		);
 	}
@@ -263,7 +263,7 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 		return array(
 			'title' => $instance['title'],
 			'image_align' => $image_align,
-			'image_width' => $instance['image_width'],
+			'box_width' => $instance['box_width'],
 			'categories' => $categories,
 			'default_thumbnail' => ! empty( $default_thumbnail ) ? $default_thumbnail[0] : '',
 		);

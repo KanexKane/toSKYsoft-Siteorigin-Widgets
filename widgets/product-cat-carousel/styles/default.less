@@ -4,7 +4,7 @@
 @thumbnail_hover_width: default;
 @thumbnail_hover_height: default;
 
-@thumbnail_image_width: default;
+@thumbnail_box_width: default;
 @thumbnail_image_align: default;
 
 .sow-carousel-wrapper {
@@ -12,7 +12,7 @@
   ul.sow-carousel-items {
 
     li.sow-carousel-item {
-      width: @thumbnail_image_width;
+      width: @thumbnail_box_width;
 
       .sow-carousel-thumbnail a {
         background-repeat: no-repeat;
@@ -20,7 +20,7 @@
         background-position: @thumbnail_image_align;
 
         &, span.overlay {
-          width: @thumbnail_image_width;
+          width: @thumbnail_box_width;
           height: @thumbnail_height;
         }
 
