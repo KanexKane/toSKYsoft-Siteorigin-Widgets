@@ -153,6 +153,22 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 				'std' => 0,
 				'label' => __('Hide empty categories', 'tss-so-widgets'),
 			),
+
+			'image_width' => array(
+				'type' => 'number',
+				'label' => __('Image Width (px)', 'so-widgets-bundle'),
+			),
+
+			'image_align' => array(
+				'type' => 'select',
+				'std' => 'center',
+				'label' => __('Image Align', 'tss-so-widgets'),
+				'options' => array(
+					'left' => __('Left', 'tss-so-widgets'),
+					'center' => __('Center', 'tss-so-widgets'),
+					'right' => __('Right', 'tss-so-widgets'),
+				),
+			),
 		);
 	}
 
@@ -163,6 +179,9 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 		$thumb_height = '';
 		$thumb_hover_width = '';
 		$thumb_hover_height = '';
+		$thumb_image_align = $instance['image_align'];
+		$thumb_image_width = $instance['image_width'];
+
 		if ( ! ( empty( $size['width'] ) || empty( $size['height'] ) ) ) {
 			$thumb_width = $size['width'] - $size['width'] * 0.1;
 			$thumb_height = $size['height'] - $size['height'] * 0.1;
@@ -170,11 +189,18 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 			$thumb_hover_height = $size['height'];
 		}
 
+		if( empty( $thumb_image_width ) )
+		{
+			$thumb_image_width = $thumb_width;
+		}
+		
 		return array(
 			'thumbnail_width' => $thumb_width . 'px',
 			'thumbnail_height'=> $thumb_height . 'px',
 			'thumbnail_hover_width' => $thumb_hover_width . 'px',
 			'thumbnail_hover_height'=> $thumb_hover_height . 'px',
+			'thumbnail_image_width' => $thumb_image_width .'px',
+			'thumbnail_image_align' => $thumb_image_align,
 		);
 	}
 
@@ -192,6 +218,7 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 
 		$orderby = isset($instance['orderby']) ? $instance['orderby'] : $this->settings['orderby']['std'];
 		$hide_empty = isset($instance['hide_empty']) ? $instance['hide_empty'] : $this->settings['hide_empty']['std'];
+		$image_align = isset($instance['image_align']) ? $instance['image_align'] : $this->settings['image_align']['std'];
 
 		$list_args = array(
 			'show_count' 	=> false,
@@ -234,6 +261,8 @@ class Toskysoft_SiteOrigin_Widgets_ProductCatCarousel_Widget extends SiteOrigin_
 		
 		return array(
 			'title' => $instance['title'],
+			'image_align' => $image_align,
+			'image_width' => $instance['image_width'],
 			'categories' => $categories,
 			'default_thumbnail' => ! empty( $default_thumbnail ) ? $default_thumbnail[0] : '',
 		);
